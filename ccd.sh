@@ -1,6 +1,8 @@
-#!/usr/bin/env zsh
 #
-# ccd - customiezd cd
+# ccd - customized cd
+#
+# Supported shells: bash (4.2+), zsh
+# Usage: source this file from .bashrc or .zshrc
 #
 # Usage:
 #  ccd path/to/dir/.                 select from subdirs
@@ -12,7 +14,7 @@
 #
 # Author : yosugi
 # License: MIT
-# Version: 0.1.0
+# Version: 0.2.0
 
 CCD_FINDER=${CCD_FINDER:-fzf}
 
@@ -65,11 +67,11 @@ function _ccd-parents() {
 function _ccd-finddir() {
     local dir
     dir=$(cat -)
-    find "${dir:0:-2}" -maxdepth 1 -type d
+    find "${dir%??}" -maxdepth 1 -type d
 }
 
 function _ccd-finddir-rec() {
     local dir
     dir=$(cat -)
-    find "${dir:0:-3}" -type d
+    find "${dir%???}" -type d
 }

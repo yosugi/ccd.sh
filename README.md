@@ -1,6 +1,6 @@
 # ccd
 
-customiezd cd
+customized cd
 
 ## Features
 
@@ -11,6 +11,11 @@ customiezd cd
 - accept stdin
 - cd to parent directories
 - cd to histories directories
+
+## Requirements
+
+- bash (4.2+) or zsh
+- fzf (or other fuzzy finder)
 
 ## Usage
 
@@ -29,9 +34,19 @@ $CCD_FINDER set fuzzy finder (default fzf).
 
 ## Installation
 
+### bash
+
 ```
-$ curl -sS https://raw.githubusercontent.com/yosugi/ccd.zsh/master/ccd.zsh > ~/.ccd.zsh
-$ echo '[ -f ~/.ccd.zsh ] && source ~/.ccd.zsh && setopt AUTO_PUSHD' >> ~/.zshrc
+$ git clone https://github.com/yosugi/ccd.zsh.git ~/.local/share/ccd
+$ echo '[ -f ~/.local/share/ccd/ccd.sh ] && source ~/.local/share/ccd/ccd.sh' >> ~/.bashrc
+$ exec $SHELL -l
+```
+
+### zsh
+
+```
+$ git clone https://github.com/yosugi/ccd.zsh.git ~/.local/share/ccd
+$ echo '[ -f ~/.local/share/ccd/ccd.sh ] && source ~/.local/share/ccd/ccd.sh && setopt AUTO_PUSHD' >> ~/.zshrc
 $ exec $SHELL -l
 ```
 
@@ -41,4 +56,4 @@ MIT License
 
 ## Version
 
-0.1.0
+0.2.0
